@@ -1,16 +1,13 @@
-FROM alpine:3.14
-
-COPY . /app
+FROM python:alpine3.17
 
 WORKDIR /app
 
-RUN set -xe \
-    && apt-get update \
-    && apt-get install python3-pip
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
+COPY requirements.txt .
 
-ENTRYPOINT ["python3"]
+RUN pip install -r requirements.txt
 
-CMD ["main.py"]
+COPY app app
 
+ENTRYPOINT ["python"]
+
+CMD ["./app/main.py"]
