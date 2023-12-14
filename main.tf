@@ -16,6 +16,7 @@ resource "aws_instance" "web" {
     }
 }
 
+#8080 for Jenkins
 resource "aws_security_group" "DevOps-VPC" {
     name                        = "DevOps-VPC"
     description                 = "Allows TLS inbound traffic"
