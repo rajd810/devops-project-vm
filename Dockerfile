@@ -1,13 +1,13 @@
 FROM python:alpine3.17
 
-WORKDIR /app
+LABEL maintainer="devops-role@outlook.com"
 
-COPY requirements.txt .
+COPY . /app
+
+WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-COPY app app
+ENTRYPOINT ["python3"]
 
-ENTRYPOINT ["python"]
-
-CMD ["./app/main.py"]
+CMD ["main.py"]
