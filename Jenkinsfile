@@ -24,7 +24,7 @@ pipeline {
         stage("Running container") {
             steps {
                 echo "Creating container"
-                //sh "docker build -t portfolio:0.1 ."
+                sh "docker build -t devops-vm:0.1 ."
             }
         }
     }
